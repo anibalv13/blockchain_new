@@ -30,7 +30,10 @@ class HomeView extends StatelessWidget {
                   final crypto = state.cryptos[index];
                   return ListTile(
                     title: Text(crypto.id),
-                    subtitle: Text(crypto.price.toString()),
+                    subtitle: Text(crypto.symbol),
+                    trailing: Text(
+                      crypto.price.toStringAsFixed(2),
+                    ),
                   );
                 },
               );

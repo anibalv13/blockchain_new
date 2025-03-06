@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:blockchain_new/app/domain/repositories/exchange_repository.dart';
 import 'package:blockchain_new/app/domain/results/get_prices/get_prices_result.dart';
 import 'package:blockchain_new/app/presentation/modules/home/bloc/home_state.dart';
