@@ -1,5 +1,5 @@
+import 'package:blockchain_new/app/domain/failures/http_request_failure.dart';
 import 'package:blockchain_new/app/presentation/modules/home/bloc/home_bloc.dart';
-import 'package:blockchain_new/app/presentation/modules/home/bloc/home_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,32 +16,44 @@ class HomeView extends StatelessWidget {
         final HomeBloc bloc = context.watch<HomeBloc>();
 
         return Scaffold(
-          body: () {
-            final state = bloc.state;
-            if (state is HomeStateLoading) {
-              return const Center(
-                child: CircularProgressIndicator(),
+          body: bloc.state.when(
+            loading: () => Center(
+              child: CircularProgressIndicator(),
+            ),
+            failed: (failure) {
+              /* final message = failure.when(
+                network: () => 'Network error',
+                notFound: () => 'Not found',
+                server: () => 'Server error',
+                unauthorized: () => 'Unauthorized',
+                badRequest: () => 'Bad request',
+                local: () => 'Local error',
+              ); */
+              /* final message = failure.maybeWhen(
+                network: () => 'Network error',
+                notFound: () => 'Not found',
+                orElse: () => 'internalError error',
+              ); */
+              final message = failure.whenOrNull(
+                network: () => 'Network error',
+                notFound: () => 'Not found',
               );
-            }
-            if (state is HomeStateLoaded) {
-              return ListView.builder(
-                itemCount: state.cryptos.length,
-                itemBuilder: (_, index) {
-                  final crypto = state.cryptos[index];
-                  return ListTile(
-                    title: Text(crypto.id),
-                    subtitle: Text(crypto.symbol),
-                    trailing: Text(
-                      crypto.price.toStringAsFixed(2),
-                    ),
-                  );
-                },
+
+              return Center(
+                child: Text(message ?? 'internalError error'),
               );
-            }
-            return const Center(
-              child: Text('Failed to load cryptos'),
-            );
-          }(),
+            },
+            loaded: (cryptos) => ListView.builder(
+              itemCount: cryptos.length,
+              itemBuilder: (context, index) {
+                final crypto = cryptos[index];
+                return ListTile(
+                  title: Text(crypto.symbol),
+                  subtitle: Text(crypto.price.toString()),
+                );
+              },
+            ),
+          ),
         );
       },
     );

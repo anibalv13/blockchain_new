@@ -1,13 +1,12 @@
+import 'package:blockchain_new/app/domain/failures/http_request_failure.dart';
 import 'package:blockchain_new/app/domain/models/crypto/crypto.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-abstract class HomeState {}
+part 'home_state.freezed.dart';
 
-class HomeStateLoading extends HomeState {}
-
-class HomeStateFailed extends HomeState {}
-
-class HomeStateLoaded extends HomeState {
-  final List<Crypto> cryptos;
-
-  HomeStateLoaded(this.cryptos);
+@freezed
+class HomeState with _$HomeState {
+  factory HomeState.loading() = _Loading;
+  factory HomeState.failed(HttpRequestFailure failure) = _Failed;
+  factory HomeState.loaded(List<Crypto> cryptos) = _Loaded;
 }
