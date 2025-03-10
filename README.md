@@ -1,16 +1,27 @@
-# blockchain_new
+# Blockchain App in Dart
 
-A new Flutter project.
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Getting Started
+Una aplicación de blockchain simple y educativa construida en Dart. Este proyecto tiene como objetivo demostrar los conceptos básicos de una blockchain, como bloques, minería, consenso y más.
 
-This project is a starting point for a Flutter application.
+## Características
 
-A few resources to get you started if this is your first Flutter project:
+- **Creación de bloques**: Genera nuevos bloques con transacciones.
+- **Minería**: Implementa un algoritmo de Proof-of-Work (PoW) para minar bloques.
+- **Cadena de bloques**: Almacena y gestiona una cadena de bloques.
+- **Consenso**: Verifica la validez de la cadena de bloques.
+- **Transacciones**: Permite la creación y validación de transacciones.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Requisitos
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Dart SDK (versión 3.6.2 o superior)
+- Git (opcional, para clonar el repositorio)
+
+## Instalación
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/tu-usuario/tu-repositorio.git
+   cd tu-repositorio
+   
