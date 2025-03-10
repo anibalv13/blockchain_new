@@ -1,5 +1,9 @@
-import '../results/get_prices/get_prices_result.dart';
+import 'package:blockchain_new/app/domain/either/either.dart';
+import 'package:blockchain_new/app/domain/failures/http_request_failure.dart';
+import 'package:blockchain_new/app/domain/models/crypto/crypto.dart';
+
+typedef GetpricesFuture = Future<Either<HttpRequestFailure, List<Crypto>>>;
 
 abstract class ExchangeRepository {
-  Future<GetPricesResult> getPrices(List<String> ids);
+  GetpricesFuture getPrices(List<String> ids);
 }
