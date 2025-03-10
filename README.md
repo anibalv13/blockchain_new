@@ -2,26 +2,41 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Una aplicación de blockchain simple y educativa construida en Dart. Este proyecto tiene como objetivo demostrar los conceptos básicos de una blockchain, como bloques, minería, consenso y más.
+Una aplicación de blockchain en Dart que muestra un listado de criptomonedas famosas, utiliza conceptos avanzados como la clase `Either`, paquetes como `json_annotation` y `freezed`, y se integra con **WebSockets** para recibir actualizaciones en tiempo real.
 
 ## Características
 
-- **Creación de bloques**: Genera nuevos bloques con transacciones.
-- **Minería**: Implementa un algoritmo de Proof-of-Work (PoW) para minar bloques.
-- **Cadena de bloques**: Almacena y gestiona una cadena de bloques.
-- **Consenso**: Verifica la validez de la cadena de bloques.
-- **Transacciones**: Permite la creación y validación de transacciones.
+-   **Listado de Criptos**: Muestra un listado de algunas de las criptomonedas más famosas.
+-   **Clase Either**: Implementa la clase `Either` para manejar resultados que pueden ser un éxito o un error de manera funcional.
+-   **Uso de `json_annotation` y `freezed`**: Utiliza los paquetes `json_annotation` y `freezed` para generar código boilerplate automáticamente, como serialización/deserialización de JSON y clases inmutables.
+-   **WebSockets**: Integra WebSockets para recibir actualizaciones en tiempo real sobre precios o transacciones de criptomonedas.
 
 ## Requisitos
 
-- Dart SDK (versión 3.6.2 o superior)
-- Git (opcional, para clonar el repositorio)
+-   Dart SDK (versión 3.6.2 o superior)
+-   Flutter (versión 3.27.0 o superior)
+-   Git (opcional, para clonar el repositorio)
 
 ## Instalación
 
 1. Clona el repositorio:
 
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-   cd tu-repositorio
-   
+    ```bash
+    git clone https://github.com/tu-usuario/blockchain_new.git
+    cd blockchain_new
+
+    ```
+
+2. Ejecutar los comandos:
+
+    ```bash
+    flutter pub get
+    dart run build_runner build -d
+
+    ```
+
+3. Corre el proyecto:
+
+    ```bash
+    flutter run
+    ```
