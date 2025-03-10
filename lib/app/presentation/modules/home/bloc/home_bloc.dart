@@ -24,7 +24,9 @@ class HomeBloc extends ChangeNotifier {
     'ethereum',
     'tether',
     'binance-coin',
+    'monero',
     'litecoin',
+    'usd-coin',
     'dogecoin',
   ];
 

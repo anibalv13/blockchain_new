@@ -19,6 +19,7 @@ class HomeView extends StatelessWidget {
         final HomeBloc bloc = context.watch<HomeBloc>();
 
         return Scaffold(
+          backgroundColor: Color(0xfff2f5f8),
           appBar: HomeAppBar(),
           body: bloc.state.when(
             loading: () => Center(
