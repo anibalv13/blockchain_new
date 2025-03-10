@@ -1,9 +1,12 @@
 import 'package:blockchain_new/app/data/repositories_impl/exchange_repository_impl.dart';
+import 'package:blockchain_new/app/data/repositories_impl/ws_repository_impl.dart';
 import 'package:blockchain_new/app/data/services/remote/exchage_api.dart';
 import 'package:blockchain_new/app/domain/repositories/exchange_repository.dart';
+import 'package:blockchain_new/app/domain/repositories/ws_repository.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart';
 import 'package:provider/provider.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
 
 import 'app/my_app.dart';
 
@@ -15,6 +18,15 @@ void main() {
           create: (_) => ExchangeRepositoryImpl(
             ExchangeAPI(
               Client(),
+            ),
+          ),
+        ),
+        Provider<WsRepository>(
+          create: (_) => WsRepositoryImpl(
+            (ids) => WebSocketChannel.connect(
+              Uri.parse(
+                'wss://ws.coincap.io/prices?assets=${ids.join(',')}',
+              ),
             ),
           ),
         ),
